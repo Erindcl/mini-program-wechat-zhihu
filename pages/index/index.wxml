@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="index-page">
+  <nav-bar />
+  <view class="nav-tabs">
+    <view
+      class="{{currentTab === item.value ? ['nav-tab', 'active'] : ['nav-tab']}}"
+      wx:key="value"
+      data-value="{{item.value}}"
+      wx:for="{{navTabs}}"
+      bindtap="switchTab"
+    >{{item.label}}</view>
+  </view>
+  <scroll-view class="list-wrapper" scroll-y="true">
+    <view
+      class="list-item"
+      wx:for="{{dataList}}"
+      wx:key="id"
+    >
+      <view class="item-left">
+        <view class="item-info">
+          <text class="{{index < 2 ? ['item-order', 'top'] : ['item-order']}}">0{{index + 1}}</text>
+          <text class="item-hot">{{item.views}} 万热度</text>
+        </view>
+        <view class="item-title">{{item.title}}</view>
+      </view>
+      <view class="item-right">
+        <image class="item-cover" src="{{item.cover}}" />
+      </view>
+    </view>
+  </scroll-view>
+</view>

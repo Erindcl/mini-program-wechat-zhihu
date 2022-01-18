@@ -1,0 +1,7 @@
+<!--components/navBar/navBar.wxml-->
+<view class="nav-bar" style="{{navBarStyles}}">
+  <input wx:if="{{currentPage === 'pages/index/index'}}" class="search-input" placeholder-style="text-align: center;" placeholder="搜索话题, 问题或人"/>
+  <view wx:if="{{currentPage === 'pages/user/user'}}" class="tip-box" style="height: {{navHeight}}px; width: {{navHeight}}px">
+    <image class="info-icon" src="../../images/info.png" />
+  </view>
+</view>

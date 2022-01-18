@@ -1,0 +1,26 @@
+<!--pages/user/user.wxml-->
+<view class="user-page">
+  <view class="top-wrapper">
+    <nav-bar />
+    <view class="avatar-wrapper">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" />
+      <text class="name">{{userInfo.name}}</text>
+    </view>
+    <view class="profile-wrapper">
+      <view
+        wx:for="{{userProfileConfig}}"
+        wx:key="index"
+        class="profile-item"
+      >
+        <text class="profile-count">{{userInfo[item.key]}}</text>
+        <text class="profile-text">{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="section-title">最近浏览</view>
+  <view class="empty-card">
+    <image class="empty-img" src="../../images/empty.png" />
+    <text class="empty-text">还没有最近浏览的内容</text>
+    <button class="back-btn" bindtap="handleBack">回到首页</button>
+  </view>
+</view>
