@@ -21,5 +21,10 @@ Page({
     this.setData({
       currentTab: e.currentTarget.dataset.value
     });
+  },
+  redirectToSerchPage: function() {
+    this.pageRouter.navigateTo({
+      url: '../search/search'
+    })
   }
 })

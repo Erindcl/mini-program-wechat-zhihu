@@ -1,0 +1,25 @@
+<!--pages/search/search.wxml-->
+<view class="search-page">
+  <nav-bar>
+    <view class="top-box" style="height: {{navHeight}}px;">
+      <view class="icon-box">
+        <image class="back-icon" src="../../images/back.png" />
+        <view class="split-line"></view>
+        <image class="home-icon" src="../../images/home_active.png" />
+      </view>
+      <view class="head-box">知乎</view>
+    </view>
+  </nav-bar>
+  <input class="search-input" placeholder="搜索话题, 问题或人"/>
+  <view class="hot-list">
+    <view class="hot-title">知乎热搜</view>
+    <view
+      wx:key="id"
+      wx:for="{{hotTopic}}"
+      class="hot-topic-item"
+    >
+      <text class="{{index < 3 ? ['item-order', 'top'] : ['item-order']}}">{{index + 1}}</text>
+      <text class="item-title">{{item.title}}</text>
+    </view>
+  </view>
+</view>

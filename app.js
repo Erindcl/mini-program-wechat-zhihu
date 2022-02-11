@@ -2,9 +2,11 @@
 App({
   onLaunch() {
     // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    const { height, right, bottom } = wx.getMenuButtonBoundingClientRect();
+    const { screenWidth } = wx.getSystemInfoSync();
+    wx.setStorageSync('navInnerHeight', height); // 顶部导航内部高度
+    wx.setStorageSync('navHeight', (screenWidth - right) + bottom); // 顶部导航总高度
+    
 
     // 登录
     wx.login({

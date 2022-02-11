@@ -1,6 +1,8 @@
 <!--index.wxml-->
 <view class="index-page">
-  <nav-bar />
+  <nav-bar>
+    <input class="search-input" bindtap="redirectToSerchPage" placeholder-style="text-align: center;" placeholder="搜索话题, 问题或人"/>
+  </nav-bar>
   <view class="nav-tabs">
     <view
       class="{{currentTab === item.value ? ['nav-tab', 'active'] : ['nav-tab']}}"
