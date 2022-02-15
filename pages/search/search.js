@@ -15,7 +15,14 @@ Page({
       { id: 6, title: '拼多多回应砍价争议' },
       { id: 7, title: '拼多多回应砍价争议' },
       { id: 8, title: '拼多多回应砍价争议' },
-    ]
+    ],
+    isSearching: true,
+    searchVal: '',
+    relationList: ['冲突', '冲突世界', '冲突人民', '冲突管理', '冲突营销'],
+    resultList: [
+      { id: 1, title: '冲突世界', support: 30, remark: 41, time: '4月前', content: '拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议' },
+      { id: 2, title: '冲突世界', support: 30, remark: 41, time: '4月前', content: '拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议拼多多回应砍价争议' },
+    ],
   },
 
   /**
@@ -26,53 +33,28 @@ Page({
       navHeight: wx.getStorageSync('navInnerHeight')
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onInputChange: function (e) {
+    this.setData({
+      searchVal: e.detail.value,
+      isSearching: true,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onViewResult: function (e) {
+    let currSearchVal = this.data.searchVal
+    if (e.currentTarget.dataset && e.currentTarget.dataset.value) {
+      currSearchVal = e.currentTarget.dataset.value
+    }
+    this.setData({
+      isSearching: false,
+      searchVal: currSearchVal
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  redirectToHome: function() {
+    this.pageRouter.switchTab({
+      url: '../index/index'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  redirectToBack: function() {
+    this.pageRouter.navigateBack()
   }
 })
