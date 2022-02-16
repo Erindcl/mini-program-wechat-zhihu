@@ -12,7 +12,7 @@
       bindtap="switchTab"
     >{{item.label}}</view>
   </view>
-  <scroll-view class="list-wrapper" scroll-y="true">
+  <scroll-view style="height: {{listSectionHeight}}px;" class="list-wrapper" scroll-y="true">
     <view
       class="list-item"
       wx:for="{{dataList}}"

@@ -14,8 +14,14 @@ Page({
       { id: 5, views: 1873, title: '1 月 10 日西安公布解除封控管理相关政策，封控区管控区调整需满足三个条件，还有哪些信息值得关注？', cover: 'https://pica.zhimg.com/80/v2-815e9da7e7c41a67fc5d06e6ff7ae53d_400x224.png' },
       { id: 6, views: 1501, title: '如果你是《步步惊心》里的若曦，你会在哪件事情上做出跟原著中不同的操作？', cover: 'https://pic2.zhimg.com/50/v2-9ffc1b5ecbef6278b1653b19f543af6a_400x224.jpg' },
     ],
+    listSectionHeight: 0,
   },
   onLoad() {
+    // px 与 rpx 单位转换
+    let unit = wx.getStorageSync('screenWidth') / 750 // rpx -> px
+    this.setData({
+      listSectionHeight: wx.getStorageSync('windowHeight') - wx.getStorageSync('navHeight') - 80 * unit
+    })
   },
   switchTab: function(e){
     this.setData({
