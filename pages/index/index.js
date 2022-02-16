@@ -1,4 +1,5 @@
 // index.js
+var request = require('../../utils/request')
 Page({
   data: {
     navTabs: [
@@ -21,6 +22,21 @@ Page({
     let unit = wx.getStorageSync('screenWidth') / 750 // rpx -> px
     this.setData({
       listSectionHeight: wx.getStorageSync('windowHeight') - wx.getStorageSync('navHeight') - 80 * unit
+    })
+  },
+  fetchData: function() {
+    // 请求示例
+    request.getApi('https://www.zhihu.com/api/v3/feed/topstory/recommend', {
+      session_token: '68d3b9262bd40be3918f681a73bb04ba',
+      desktop: true,
+      page_number: 2,
+      limit: 6,
+      action: 'down',
+      after_id: 5,
+      ad_interval: -10,
+    }, 'GET', false).then((data) => {
+      console.log('返回的数据：----------')
+      console.log(data)
     })
   },
   switchTab: function(e){
