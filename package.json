@@ -1,0 +1,22 @@
+{
+  "name": "mini-program-wechat-zhihu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erindcl/mini-program-wechat-zhihu.git"
+  },
+  "author": "Erin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erindcl/mini-program-wechat-zhihu/issues"
+  },
+  "homepage": "https://github.com/Erindcl/mini-program-wechat-zhihu#readme",
+  "dependencies": {
+    "weui-miniprogram": "^1.2.3"
+  }
+}

@@ -3,7 +3,7 @@
   <view class="top-wrapper">
     <nav-bar>
       <view class="tip-box" style="height: {{navHeight}}px; width: {{navHeight}}px">
-        <image class="info-icon" src="../../images/info.png" />
+        <image bindtap="handleOpen" class="info-icon" src="../../images/info.png" />
       </view>
     </nav-bar>
     <view class="avatar-wrapper">
@@ -27,4 +27,13 @@
     <text class="empty-text">还没有最近浏览的内容</text>
     <button class="back-btn" bindtap="handleBack">回到首页</button>
   </view>
+  <mp-dialog
+    show="{{visible}}"
+    mask-closable="{{false}}"
+    mask="{{true}}"
+    buttons="{{[{ text: '我知道了' }]}}"
+    bindbuttontap="handleClose"
+  >
+    <view>知乎协议详情信息...</view>
+  </mp-dialog>
 </view>
